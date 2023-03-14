@@ -159,22 +159,22 @@ if __name__ == '__main__':
     p1 = 0.4
 
     # Part 1
-    # samples_, labels_ = gen_samples(10000, False, 'Validate')
-    # tp_rate, fp_rate, min_tp_rate, min_fp_rate = classify(10000, samples_, labels_)
-    # plt.scatter(min_fp_rate, min_tp_rate, color='red')
-    # plt.plot(fp_rate, tp_rate)
-    # plt.xlabel('False Positive Rate')
-    # plt.ylabel('True Positive Rate')
-    # plt.title('ROC Curve')
-    # plt.show()
+    samples_, labels_ = gen_samples(10000, False, 'Validate')
+    tp_rate, fp_rate, min_tp_rate, min_fp_rate = classify(10000, samples_, labels_)
+    plt.scatter(min_fp_rate, min_tp_rate, color='red')
+    plt.plot(fp_rate, tp_rate)
+    plt.xlabel('False Positive Rate')
+    plt.ylabel('True Positive Rate')
+    plt.title('ROC Curve')
+    plt.show()
 
     # Part 2
     use_quadratic = True
     train_samples, train_labels = gen_samples(2000, generate_new=True)
     val_samples, val_labels_ = gen_samples(10000, generate_new=True, kind='Validate')
-    # weights = train_logistic_linear_function(train_samples, train_labels, quadratic_function=use_quadratic)
-    # predict(train_samples, weights, train_labels, quadratic_function=use_quadratic)
-    # predict(val_samples, weights, val_labels_, quadratic_function=use_quadratic)
+    weights = train_logistic_linear_function(train_samples, train_labels, quadratic_function=use_quadratic)
+    predict(train_samples, weights, train_labels, quadratic_function=use_quadratic)
+    predict(val_samples, weights, val_labels_, quadratic_function=use_quadratic)
 
 #     Plot weights as decision boundary, compare linear and quadratic in terms of train error and validation error,
 #     check for overfitting, compare theretical optima and this in terms of error
