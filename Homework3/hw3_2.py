@@ -77,7 +77,7 @@ def fit_models(samples, labels, k=10):
     plt.ylabel('Negative Log Likelihood score')
     plt.legend(loc='best')
     plt.title('Negative log_likelihood score for different GMM models')
-    # plt.show()
+    plt.show()
     return np.argmin(scores_total) + 1
 
 
